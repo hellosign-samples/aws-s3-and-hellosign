@@ -50,6 +50,12 @@ const sendSignatureRequest = async (s3FileInfo, signerName, signerEmail, filePat
 const downloadSignedFile = async (signatureRequestId, fileName) => {
     console.log("Attempting to download completed signature request from HS:", signatureRequestId);
     try {
+        // Make sure there's a local folder to store signed files
+        const signedFileDir = path.resolve(__dirname, '../signed-files/');
+        if (!fs.existsSync(signedFileDir)){
+            fs.mkdirSync(signedFileDir);
+        };
+        // Download signed file from HelloSign
         const signedFile = await hellosignClient.signatureRequest.download(signatureRequestId);
         const filePath = path.resolve(__dirname, `../signed-files/signed-${fileName}`);
         // Ensure the file is written before we return the file path

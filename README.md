@@ -17,7 +17,7 @@ You'll need the tools below to follow along with the sample. You may also need t
 
 **Amazon Web Services**  
 * [AWS account](https://aws.amazon.com/free) -- Create an account if you don't have one. This sample will work with the free tier.
-* [S3 Bucket](https://docs.aws.amazon.com/quickstarts/latest/s3backup/step-1-create-bucket.html) -- Create an S3 bucket.
+* [S3 Bucket](https://docs.aws.amazon.com/quickstarts/latest/s3backup/step-1-create-bucket.html) -- Create an S3 bucket with BPA and SSE-S3 controls.
 * [AWS JavaScript SDK](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html) -- Already listed in _package.json_. Installed with other node modules during setup.  
 
 **HelloSign API**
@@ -35,7 +35,7 @@ You'll need the tools below to follow along with the sample. You may also need t
 2. Add your HelloSign credentials to the `.env-example` file. **Note:** We recommend using something more secure in a production, such as environment variables in your AWS environment.
 3. Add a PDF file to the /files-to-sign folder*. This is the document you'll be signing in this example flow. (Feel free to use the "fake-rental-agreement.pdf" included in this repo).
 4. Run `npm install` to download libraries used in this demo.
-5. Create a new S3 bucket and copy the name into the _.env-example_ file.
+5. Create a new S3 bucket with BPA and SSE-S3 controls, then copy the name into the _.env-example_ file.
 6. Update the `REGION` in /libs/s3Client.js to match the region of your S3 bucket.
 7. Update the `signerName` and `signerEmail` fields in _.env-example_ with your own information. This is used for the signature request sent by HelloSign.
 8. *Important*: Once filled out, **rename `.env-example` to `.env`**.

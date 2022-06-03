@@ -43,9 +43,9 @@ const uploadFileToS3 = async (filePath, bucketName) => {
 const getPresignedUrl = async (bucketParams) => {
     try {
         const command = new GetObjectCommand(bucketParams);
-        // Presigned URL set to expire after 10 minutes
+        // Presigned URL set to expire after 30 seconds
         const signedUrl = await getSignedUrl(s3Client, command, {
-            expiresIn: 600,
+            expiresIn: 30,
         });
         console.log(`Created presigned url for ${bucketParams.Key}.`);
         return { presignedUrl: signedUrl, bucketName: bucketParams.Bucket };
